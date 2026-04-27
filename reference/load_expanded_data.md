@@ -128,7 +128,7 @@ load_expanded_data(trial_itt_csv)
 #> A TE Datastore CSV object 
 #> N: 1558 observations 
 #> Periods: 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 
-#> Path: /tmp/Rtmp7583Td/trial_itt/trial_csvs 
+#> Path: /tmp/RtmpNbpgn5/trial_itt/trial_csvs 
 #> Columns: id, trial_period, followup_time, outcome, weight, treatment, x1, x2, assigned_treatment 
 #>  
 #> Outcome model: 
@@ -196,7 +196,7 @@ load_expanded_data(
 #> A TE Datastore CSV object 
 #> N: 1558 observations 
 #> Periods: 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 
-#> Path: /tmp/Rtmp7583Td/trial_itt/trial_csvs 
+#> Path: /tmp/RtmpNbpgn5/trial_itt/trial_csvs 
 #> Columns: id, trial_period, followup_time, outcome, weight, treatment, x1, x2, assigned_treatment 
 #>  
 #> Outcome model: 
@@ -208,21 +208,21 @@ load_expanded_data(
 #> Use fit_msm() to fit the outcome model 
 #>  
 #> Outcome data 
-#> N: 125 observations from 23 patients in 15 trial periods 
-#> Periods: 1 2 3 4 5 6 7 8 9 10 11 12 13 15 16 
+#> N: 125 observations from 25 patients in 13 trial periods 
+#> Periods: 1 2 3 4 5 6 7 8 9 10 12 13 14 
 #> Subset condition: followup_time %in% 1:20 & x2 < 1 
 #> Sampling control observations with probability: 0.2 
-#>         id trial_period followup_time outcome weight treatment    x1        x2
-#>      <int>        <int>         <int>   <int>  <int>     <int> <int>     <num>
-#>   1:    65            1             1       0      1         1     1 0.9691776
-#>   2:    14            1             1       0      1         0     0 0.5166495
-#>  ---                                                                          
-#> 124:    54           15             1       0      1         0     0 0.6850722
-#> 125:    54           16             3       0      1         0     1 0.8179964
+#>         id trial_period followup_time outcome weight treatment    x1         x2
+#>      <int>        <int>         <int>   <int>  <int>     <int> <int>      <num>
+#>   1:     2            1             1       0      1         1     1 -0.9830300
+#>   2:    57            1             1       0      1         0     1  0.1324849
+#>  ---                                                                           
+#> 124:    54           14             2       0      1         0     1  0.5460615
+#> 125:    54           14             3       0      1         1     1  0.5460615
 #>      assigned_treatment sample_weight
 #>                   <int>         <num>
 #>   1:                  1             5
-#>   2:                  1             5
+#>   2:                  0             5
 #>  ---                                 
 #> 124:                  0             5
 #> 125:                  0             5

@@ -386,13 +386,13 @@ data.</p>
 <span><span class="co">#&gt; Expanded Trial Emulation data</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Expanded data saved in 396 csv files:</span></span>
-<span><span class="co">#&gt;   1:   /tmp/RtmpotxPBD/trial_emu/trial_1.csv</span></span>
-<span><span class="co">#&gt;   2:   /tmp/RtmpotxPBD/trial_emu/trial_2.csv</span></span>
-<span><span class="co">#&gt;   3:   /tmp/RtmpotxPBD/trial_emu/trial_3.csv</span></span>
+<span><span class="co">#&gt;   1:   /tmp/RtmpCW7vC4/trial_emu/trial_1.csv</span></span>
+<span><span class="co">#&gt;   2:   /tmp/RtmpCW7vC4/trial_emu/trial_2.csv</span></span>
+<span><span class="co">#&gt;   3:   /tmp/RtmpCW7vC4/trial_emu/trial_3.csv</span></span>
 <span><span class="co">#&gt;  ---                                        </span></span>
-<span><span class="co">#&gt; 394: /tmp/RtmpotxPBD/trial_emu/trial_394.csv</span></span>
-<span><span class="co">#&gt; 395: /tmp/RtmpotxPBD/trial_emu/trial_395.csv</span></span>
-<span><span class="co">#&gt; 396: /tmp/RtmpotxPBD/trial_emu/trial_396.csv</span></span>
+<span><span class="co">#&gt; 394: /tmp/RtmpCW7vC4/trial_emu/trial_394.csv</span></span>
+<span><span class="co">#&gt; 395: /tmp/RtmpCW7vC4/trial_emu/trial_395.csv</span></span>
+<span><span class="co">#&gt; 396: /tmp/RtmpCW7vC4/trial_emu/trial_396.csv</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Number of observations in expanded data: 963883 </span></span>
@@ -452,7 +452,7 @@ individually</p>
 <span><span class="co">#&gt;  null.deviance df.null logLik  AIC  BIC deviance df.residual  nobs</span></span>
 <span><span class="co">#&gt;           4330   21263  -2165 4335 4359     4329       21261 21264</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Object saved at "/tmp/RtmpotxPBD/trial_emu/weight_model_switch_n0.rds"</span></span></code></pre></div>
+<span><span class="co">#&gt; Object saved at "/tmp/RtmpCW7vC4/trial_emu/weight_model_switch_n0.rds"</span></span></code></pre></div>
 <p>If <code>save_weight_models = TRUE,</code> the full model objects are
 saved in <code>working_dir</code>, so you can inspect the data used in
 those models and further investigate how well those models fit.</p>
@@ -489,12 +489,12 @@ those models and further investigate how well those models fit.</p>
 <p>We also see the expanded trial files:</p>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">prep_data</span><span class="op">$</span><span class="va">data</span><span class="op">)</span></span>
-<span><span class="co">#&gt; [1] "/tmp/RtmpotxPBD/trial_emu/trial_1.csv"</span></span>
-<span><span class="co">#&gt; [2] "/tmp/RtmpotxPBD/trial_emu/trial_2.csv"</span></span>
-<span><span class="co">#&gt; [3] "/tmp/RtmpotxPBD/trial_emu/trial_3.csv"</span></span>
-<span><span class="co">#&gt; [4] "/tmp/RtmpotxPBD/trial_emu/trial_4.csv"</span></span>
-<span><span class="co">#&gt; [5] "/tmp/RtmpotxPBD/trial_emu/trial_5.csv"</span></span>
-<span><span class="co">#&gt; [6] "/tmp/RtmpotxPBD/trial_emu/trial_6.csv"</span></span></code></pre></div>
+<span><span class="co">#&gt; [1] "/tmp/RtmpCW7vC4/trial_emu/trial_1.csv"</span></span>
+<span><span class="co">#&gt; [2] "/tmp/RtmpCW7vC4/trial_emu/trial_2.csv"</span></span>
+<span><span class="co">#&gt; [3] "/tmp/RtmpCW7vC4/trial_emu/trial_3.csv"</span></span>
+<span><span class="co">#&gt; [4] "/tmp/RtmpCW7vC4/trial_emu/trial_4.csv"</span></span>
+<span><span class="co">#&gt; [5] "/tmp/RtmpCW7vC4/trial_emu/trial_5.csv"</span></span>
+<span><span class="co">#&gt; [6] "/tmp/RtmpCW7vC4/trial_emu/trial_6.csv"</span></span></code></pre></div>
 <p>Each of these csv files contains the data for the trial starting at
 period <code>_i</code>. To create a manageable dataset for the final
 analysis we can sample from these trials.</p>
@@ -517,7 +517,7 @@ time in each trial. All observations with events are included.</p>
 <span><span class="co">#&gt;  $ nvarC             : int  45 47 70 49 45 69 49 56 45 49 ...</span></span>
 <span><span class="co">#&gt;  $ assigned_treatment: int  0 0 0 0 0 0 0 0 0 0 ...</span></span>
 <span><span class="co">#&gt;  $ sample_weight     : num  10 10 10 10 10 10 10 10 10 10 ...</span></span>
-<span><span class="co">#&gt;  - attr(*, ".internal.selfref")=&lt;externalptr&gt;</span></span></code></pre></div>
+<span><span class="co">#&gt;  - attr(*, ".internal.selfref")=&lt;pointer: 0x55fd7f05aee0&gt;</span></span></code></pre></div>
 <p>Before proceeding with the modelling, it is possible to manipulate
 and derive new variables and adjust factor levels in the
 <code>data.frame</code>. You can also specify transformations in a

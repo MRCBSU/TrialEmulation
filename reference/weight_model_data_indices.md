@@ -123,7 +123,7 @@ show_weight_models(trial_pp)
 #>  188.829       150     -93.43779 190.8756 196.9101 186.8756 149         151 
 #>  
 #>  path                                 
-#>  /tmp/Rtmp7583Td/model_1a90cd4fed5.rds
+#>  /tmp/RtmpNbpgn5/model_1b20a7cd82d.rds
 #>  
 #> [[d1]]
 #> Model: P(treatment = 1 | previous treatment = 1) for denominator 
@@ -138,7 +138,7 @@ show_weight_models(trial_pp)
 #>  188.829       150     -92.54787 193.0957 205.1649 185.0957 147         151 
 #>  
 #>  path                                  
-#>  /tmp/Rtmp7583Td/model_1a906e28a608.rds
+#>  /tmp/RtmpNbpgn5/model_1b202c6251a4.rds
 #>  
 #> [[n0]]
 #> Model: P(treatment = 1 | previous treatment = 0) for numerator 
@@ -151,7 +151,7 @@ show_weight_models(trial_pp)
 #>  232.2705      169     -113.2746 230.5492 236.8208 226.5492 168         170 
 #>  
 #>  path                                  
-#>  /tmp/Rtmp7583Td/model_1a9049b4d521.rds
+#>  /tmp/RtmpNbpgn5/model_1b202f079558.rds
 #>  
 #> [[d0]]
 #> Model: P(treatment = 1 | previous treatment = 0) for denominator 
@@ -166,7 +166,7 @@ show_weight_models(trial_pp)
 #>  232.2705      169     -111.03 230.06 242.6032 222.06   166         170 
 #>  
 #>  path                                  
-#>  /tmp/Rtmp7583Td/model_1a9074eb3457.rds
+#>  /tmp/RtmpNbpgn5/model_1b2042e544a3.rds
 #>  
 
 # get logical column for own processing

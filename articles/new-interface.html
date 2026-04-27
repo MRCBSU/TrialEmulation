@@ -325,7 +325,7 @@ can be printed:</p>
 <span><span class="co">#&gt;  404.2156      724     -196.7002 397.4004 406.5727 393.4004 723         725 </span></span>
 <span><span class="co">#&gt;  </span></span>
 <span><span class="co">#&gt;  path                                                          </span></span>
-<span><span class="co">#&gt;  /tmp/RtmplNIgzx/trial_itt/switch_models/model_1ebd1de01119.rds</span></span>
+<span><span class="co">#&gt;  /tmp/RtmpsGtgTs/trial_itt/switch_models/model_1f80655aa09f.rds</span></span>
 <span><span class="co">#&gt;  </span></span>
 <span><span class="co">#&gt; [[d0]]</span></span>
 <span><span class="co">#&gt; Model: P(censor_event = 0 | X, previous treatment = 0) for denominator </span></span>
@@ -339,7 +339,7 @@ can be printed:</p>
 <span><span class="co">#&gt;  283.0723      425     -132.1655 270.3309 282.4943 264.3309 423         426 </span></span>
 <span><span class="co">#&gt;  </span></span>
 <span><span class="co">#&gt;  path                                                          </span></span>
-<span><span class="co">#&gt;  /tmp/RtmplNIgzx/trial_itt/switch_models/model_1ebd23a5948a.rds</span></span>
+<span><span class="co">#&gt;  /tmp/RtmpsGtgTs/trial_itt/switch_models/model_1f8035df4eb2.rds</span></span>
 <span><span class="co">#&gt;  </span></span>
 <span><span class="co">#&gt; [[d1]]</span></span>
 <span><span class="co">#&gt; Model: P(censor_event = 0 | X, previous treatment = 1) for denominator </span></span>
@@ -353,7 +353,7 @@ can be printed:</p>
 <span><span class="co">#&gt;  113.0528      298     -55.72938 117.4588 128.5601 111.4588 296         299 </span></span>
 <span><span class="co">#&gt;  </span></span>
 <span><span class="co">#&gt;  path                                                          </span></span>
-<span><span class="co">#&gt;  /tmp/RtmplNIgzx/trial_itt/switch_models/model_1ebd58db57dc.rds</span></span>
+<span><span class="co">#&gt;  /tmp/RtmpsGtgTs/trial_itt/switch_models/model_1f807449dc3d.rds</span></span>
 <span><span class="co">#&gt; </span></span></code></pre></div>
 </div>
 </div>
@@ -681,7 +681,10 @@ the baseline of the provided <code>newdata</code>, i.e. observations
 with <code>followup_time == 0</code> and constructs data with
 <code>followup_time</code> for the given <code>predict_times</code>. It
 is important to specify <code>newdata</code> correctly for a meaningful
-interpretation of the differences in survival.</p>
+interpretation of the differences in survival. Users can specify which
+type of confidence interval construction method they wish to use with
+the <code>conf_type</code> argument. The default method is using the
+robust sandwich variance estimator.</p>
 <div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">preds</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/predict_marginal.html">predict</a></span><span class="op">(</span></span>
 <span>  <span class="va">trial_itt</span>,</span>

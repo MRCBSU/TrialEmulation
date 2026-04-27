@@ -273,7 +273,7 @@ show_weight_models(trial_itt)
 #>  404.2156      724     -196.7002 397.4004 406.5727 393.4004 723         725 
 #>  
 #>  path                                                          
-#>  /tmp/RtmplNIgzx/trial_itt/switch_models/model_1ebd1de01119.rds
+#>  /tmp/RtmpsGtgTs/trial_itt/switch_models/model_1f80655aa09f.rds
 #>  
 #> [[d0]]
 #> Model: P(censor_event = 0 | X, previous treatment = 0) for denominator 
@@ -287,7 +287,7 @@ show_weight_models(trial_itt)
 #>  283.0723      425     -132.1655 270.3309 282.4943 264.3309 423         426 
 #>  
 #>  path                                                          
-#>  /tmp/RtmplNIgzx/trial_itt/switch_models/model_1ebd23a5948a.rds
+#>  /tmp/RtmpsGtgTs/trial_itt/switch_models/model_1f8035df4eb2.rds
 #>  
 #> [[d1]]
 #> Model: P(censor_event = 0 | X, previous treatment = 1) for denominator 
@@ -301,7 +301,7 @@ show_weight_models(trial_itt)
 #>  113.0528      298     -55.72938 117.4588 128.5601 111.4588 296         299 
 #>  
 #>  path                                                          
-#>  /tmp/RtmplNIgzx/trial_itt/switch_models/model_1ebd58db57dc.rds
+#>  /tmp/RtmpsGtgTs/trial_itt/switch_models/model_1f807449dc3d.rds
 #> 
 ```
 
@@ -649,7 +649,10 @@ different values of `assigned_treatment`. The `predict` method takes the
 baseline of the provided `newdata`, i.e. observations with
 `followup_time == 0` and constructs data with `followup_time` for the
 given `predict_times`. It is important to specify `newdata` correctly
-for a meaningful interpretation of the differences in survival.
+for a meaningful interpretation of the differences in survival. Users
+can specify which type of confidence interval construction method they
+wish to use with the `conf_type` argument. The default method is using
+the robust sandwich variance estimator.
 
 ``` r
 preds <- predict(
