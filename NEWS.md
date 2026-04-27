@@ -1,4 +1,4 @@
-# TrialEmulation 0.0.4.11
+# TrialEmulation 0.0.4.12
 
 * Remove dependency on `parglm` which has been archived on CRAN.
 
