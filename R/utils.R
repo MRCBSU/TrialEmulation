@@ -138,7 +138,7 @@ extract_baseline <- function(trial_file, baseline_file, quiet = TRUE) {
   if (file.exists(trial_file)) {
     quiet_msg("Extracting baseline observations from ", trial_file)
     fwrite(fread(trial_file)[followup_time == 0, ], file = baseline_file)
-    return(baseline_file)
+    baseline_file
   } else {
     assert_file_exists(trial_file)
   }
@@ -166,4 +166,21 @@ catn <- function(...) {
 drop_path <- function(x) {
   output <- sub("Path: [[:graph:]]*", "Path:", x)
   output
+}
+
+#' Suppress warnings with matching
+#' @param expr expression
+#' @param matching a character vector of patterns to pass to [grepl()] for matching the warning messages
+#' @param classes a character, indicating which classes of warnings should be suppressed
+#' @param ... other arguments to [grepl()]
+#' @seealso [suppressWarnings()]
+#' @noRd
+suppressMatchingWarnings <- function(expr, matching = c("probabilities"), classes = "warning", ...) {
+  withCallingHandlers(expr, warning = function(w) {
+    if (inherits(w, classes)) {
+      if (any(vapply(matching, FUN = function(p, ...) grepl(p, x = w$message, ...), FUN.VALUE = logical(1L)))) {
+        tryInvokeRestart("muffleWarning")
+      }
+    }
+  })
 }

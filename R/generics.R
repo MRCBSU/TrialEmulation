@@ -88,7 +88,6 @@ summary.TE_robust <- function(object, ...) {
 }
 
 
-
 #' Print a weight summary object
 #'
 #' `r lifecycle::badge('stable')`
@@ -110,7 +109,6 @@ print.TE_weight_summary <- function(x, full = TRUE, ...) {
     }
   }
 }
-
 
 
 #' Internal Methods
@@ -513,6 +511,7 @@ setGeneric("fit_msm", function(object,
 #' Predict marginal cumulative incidences with confidence intervals for a target trial population
 #'
 #' `r lifecycle::badge('stable')`
+#'
 #' This function predicts the marginal cumulative incidences when a target trial population receives either the
 #' treatment or non-treatment at baseline (for an intention-to-treat analysis) or either sustained treatment or
 #' sustained non-treatment (for a per-protocol analysis). The difference between these cumulative incidences is the
@@ -529,11 +528,26 @@ setGeneric("fit_msm", function(object,
 #' @param predict_times Specify the follow-up visits/times where the marginal cumulative incidences or survival
 #'   probabilities are predicted.
 #' @param conf_int Construct the point-wise 95-percent confidence intervals of cumulative incidences for the target
-#'   trial population under treatment and non-treatment and their differences by simulating the parameters in the
-#'   marginal structural model from a multivariate normal distribution with the mean equal to the marginal structural
-#'   model parameter estimates and the variance equal to the estimated robust covariance matrix.
+#'   trial population under treatment and non-treatment and their differences. The default confidence interval
+#'   construction methods simulates the parameters in the marginal structural model from a multivariate normal
+#'   distribution with the mean equal to the marginal structural model parameter estimates and the variance
+#'   equal to the estimated robust covariance matrix.
+#' @param ci_type Specify the method used to construct the confidence interval for a per-protocol
+#'   estimand (`estimand_type = "PP"`) (only available for [trial_sequence] object).
+#'   `'sandwich'`: using the estimated robust sandwich covariance matrix;
+#'   `'Nonpara. bootstrap'`, `'LEF outcome'`, `'LEF both'`, `'Jackknife Wald'`, `'Jackknife MVN'`
 #' @param samples Number of samples used to construct the simulation-based confidence intervals.
+
 #' @param ... Further arguments passed to or from other methods.
+#' @details
+#' The width of the confidence intervals for resampling-based methods (`'Nonpara. bootstrap'`,
+#' `'LEF outcome'`, `'LEF both'`, `'Jackknife Wald'`) is determined
+#' by the presence of an \code{id} column in \code{newdata}.
+#' If included, the function accounts for sampling variation
+#' in the target population, which typically yields
+#' wider intervals. If omitted, the target population is treated as a fixed group,
+#' and the intervals reflect only the uncertainty from the
+#' original source model.
 #'
 #' @return A list of three data frames containing the cumulative incidences for each of the assigned treatment options
 #'   (treatment and non-treatment) and the difference between them.

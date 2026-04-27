@@ -96,7 +96,6 @@ predict.TE_msm <- function(object,
 }
 
 
-
 #' Check Data used for Prediction
 #'
 #' @param newdata new data to predict, or missing.
@@ -106,6 +105,9 @@ predict.TE_msm <- function(object,
 #' @return A `newdata` data.frame
 check_newdata <- function(newdata, model, predict_times) {
   required_vars <- setdiff(all.vars(model$formula), "outcome")
+  if (!("followup_time" %in% required_vars)) {
+    required_vars <- c(required_vars, "followup_time")
+  }
   if (missing(newdata)) {
     newdata <- model$data[, required_vars, with = FALSE]
     newdata <- newdata[newdata$followup_time == 0, ]

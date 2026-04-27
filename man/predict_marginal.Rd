@@ -15,6 +15,7 @@ predict(object, ...)
   newdata,
   predict_times,
   conf_int = TRUE,
+  ci_type = "sandwich",
   samples = 100,
   type = c("cum_inc", "survival")
 )
@@ -25,6 +26,8 @@ predict(object, ...)
   predict_times,
   conf_int = TRUE,
   samples = 100,
+  ci_type = c("sandwich", "Nonpara. bootstrap", "LEF outcome", "LEF both",
+    "Jackknife Wald", "Jackknife MVN"),
   type = c("cum_inc", "survival")
 )
 
@@ -52,9 +55,15 @@ the fitted marginal structural model specified in \code{\link[=trial_msm]{trial_
 probabilities are predicted.}
 
 \item{conf_int}{Construct the point-wise 95-percent confidence intervals of cumulative incidences for the target
-trial population under treatment and non-treatment and their differences by simulating the parameters in the
-marginal structural model from a multivariate normal distribution with the mean equal to the marginal structural
-model parameter estimates and the variance equal to the estimated robust covariance matrix.}
+trial population under treatment and non-treatment and their differences. The default confidence interval
+construction methods simulates the parameters in the marginal structural model from a multivariate normal
+distribution with the mean equal to the marginal structural model parameter estimates and the variance
+equal to the estimated robust covariance matrix.}
+
+\item{ci_type}{Specify the method used to construct the confidence interval for a per-protocol
+estimand (\code{estimand_type = "PP"}) (only available for \link{trial_sequence} object).
+\code{'sandwich'}: using the estimated robust sandwich covariance matrix;
+\code{'Nonpara. bootstrap'}, \code{'LEF outcome'}, \code{'LEF both'}, \code{'Jackknife Wald'}, \code{'Jackknife MVN'}}
 
 \item{samples}{Number of samples used to construct the simulation-based confidence intervals.}
 
@@ -67,11 +76,22 @@ A list of three data frames containing the cumulative incidences for each of the
 }
 \description{
 \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#stable}{\figure{lifecycle-stable.svg}{options: alt='[Stable]'}}}{\strong{[Stable]}}
+}
+\details{
 This function predicts the marginal cumulative incidences when a target trial population receives either the
 treatment or non-treatment at baseline (for an intention-to-treat analysis) or either sustained treatment or
 sustained non-treatment (for a per-protocol analysis). The difference between these cumulative incidences is the
 estimated causal effect of treatment. Currently, the \code{predict} function only provides marginal intention-to-treat and
 per-protocol effects, therefore it is only valid when \code{estimand_type = "ITT"} or \code{estimand_type = "PP"}.
+
+The width of the confidence intervals for resampling-based methods (\code{'Nonpara. bootstrap'},
+\code{'LEF outcome'}, \code{'LEF both'}, \code{'Jackknife Wald'}) is determined
+by the presence of an \code{id} column in \code{newdata}.
+If included, the function accounts for sampling variation
+in the target population, which typically yields
+wider intervals. If omitted, the target population is treated as a fixed group,
+and the intervals reflect only the uncertainty from the
+original source model.
 }
 \examples{
 # Prediction for initiators() or trial_msm() objects -----

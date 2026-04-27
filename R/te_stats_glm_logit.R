@@ -170,7 +170,7 @@ setMethod(
       SIMPLIFY = FALSE,
       FUN = function(pred_matrix, col_names) {
         if (conf_int) {
-          quantiles <- apply(pred_matrix, 1, quantile, probs = c(0.025, 0.975))
+          quantiles <- apply(pred_matrix[, -1, drop = FALSE], 1, quantile, probs = c(0.025, 0.975))
           setNames(
             data.frame(predict_times, pred_matrix[, 1], quantiles[1, ], quantiles[2, ]),
             c("followup_time", col_names, "2.5%", "97.5%")
